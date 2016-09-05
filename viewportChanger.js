@@ -9,11 +9,12 @@ function windowResized(argument) {
 		var deviceHeight = (document.body.clientHeight < window.screen.height) ? document.body.clientHeight : window.screen.height;
 
 		var orientation = (deviceWidth > deviceHeight) ? 'landscape' : 'portrait';
-		var dpt = window.devicePixelRatio = window.devicePixelRatio || Math.round(window.screen.availWidth / document.documentElement.clientWidth);
+
+		var dpt = window.devicePixelRatio || Math.round(window.screen.availWidth / document.documentElement.clientWidth);
+
 		if (dpt > 2) dpt = 1.5;
 
 		var widthDPI = window.screen.width * dpt;
-		var heightDPI = window.screen.height * dpt;
 
 		if (orientation == 'landscape') {
 			document.getElementById('viewport').setAttribute('content', 'width=' + pad + ',  user-scalable=no');
